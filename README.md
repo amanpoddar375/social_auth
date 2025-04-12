@@ -4,28 +4,74 @@
 ![Django](https://img.shields.io/badge/django-5.2-green)
 ![Allauth](https://img.shields.io/badge/allauth-0.62-lightgrey)
 
-A Django project demonstrating social authentication with Google and Facebook, using django-allauth.
+A complete Django project with Google and Facebook authentication using django-allauth.
 
 ## Features
 
 ✅ Google OAuth2 authentication  
 ✅ Facebook OAuth2 authentication  
+✅ Automatic social app configuration  
 ✅ REST API endpoints for user information  
 ✅ Token-based authentication  
-✅ Custom user profile page showing auth provider  
-✅ Automatic social app configuration  
+✅ Admin interface for user management  
 
-## Setup Instructions
+## Complete Setup Guide
 
-### Prerequisites
+### 1. Prerequisites
 - Python 3.8+
-- Django 5.2
 - Google OAuth2 credentials
 - Facebook App credentials
 
-### Installation
+### 2. Project Setup
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/yourusername/social_auth.git
-   cd social_auth
+```bash
+# Clone the repository
+git clone https://github.com/yourusername/social_auth.git
+cd social_auth
+
+# Create and activate virtual environment
+python -m venv venv
+
+# On Windows:
+venv\Scripts\activate
+
+# On macOS/Linux:
+source venv/bin/activate
+
+# Install dependencies
+pip install -r requirements.txt
+
+```
+### 3. Environment Configuration
+
+#### Create .env file
+```
+DJANGO_SECRET_KEY=your-django-secret-key-here
+GOOGLE_CLIENT_ID=your-google-client-id-here
+GOOGLE_CLIENT_SECRET=your-google-client-secret-here
+FACEBOOK_APP_ID=your-facebook-app-id-here
+FACEBOOK_APP_SECRET=your-facebook-app-secret-here
+```
+### 4. Database Setup and Run Server
+```
+python manage.py migrate
+python manage.py createsuperuser
+
+python manage.py runserver
+```
+
+### 5. Configure Site Domain in Django Admin
+After creating the superuser, configure the default site for social login:
+
+- Open your browser and go to the Django admin panel:
+    http://localhost:8000/admin/sites/site/ 
+- Click on the existing site (usually ID = 1) and update it as follows:
+
+        Domain name: localhost:8000
+
+        Display name: localhost
+
+### 5. Access the login page
+Now that everything is set up, navigate to the login page in your browser:
+
+http://localhost:8000/accounts/login/
