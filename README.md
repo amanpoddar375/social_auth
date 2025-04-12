@@ -76,12 +76,12 @@ Now that everything is set up, navigate to the login page in your browser:
 
 http://localhost:8000/accounts/login/
 
-![alt text](image.png)
+![Login Page](media/image.png)
 
-On clicking Continue with Google
-![alt text](image-1.png)
-![alt text](image-2.png)
+### On clicking "Continue with Google"
+![Google Login Step 1](media/image-1.png)
+![Google Login Step 2](media/image-2.png)
 
-On Clickeing Continue with Facebook
-![alt text](image-3.png)
-![alt text](image-4.png)
+### On clicking "Continue with Facebook"
+![Facebook Login Step 1](media/image-3.png)
+![Facebook Login Step 2](media/image-4.png)
