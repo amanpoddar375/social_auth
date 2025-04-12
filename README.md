@@ -45,6 +45,29 @@ pip install -r requirements.txt
 ### 3. Environment Configuration
 
 #### Create .env file
+
+
+##### How to get Google and Facebook credentials
+
+###### 1. Google OAuth2 credentials
+- Go to the [Google Developer Console](https://console.developers.google.com/).
+- Create a new project or use an existing one.
+- Navigate to **Credentials** from the sidebar.
+- Click **Create Credentials** and select **OAuth 2.0 Client IDs**.
+- Under **Authorized redirect URIs**, add:  
+  `http://localhost:8000/accounts/google/login/callback/`  
+  (This is the URI used by the Django app for Google login).
+- After saving, you will see the **Client ID** and **Client Secret**. Copy these values and place them in your `.env` file.
+
+###### 2. Facebook App credentials
+- Go to the [Facebook for Developers site](https://developers.facebook.com/).
+- Create a new app in the **My Apps** section.
+- Under **Facebook Login**, select **Settings**.
+- Add `http://localhost:8000` as the **Valid OAuth redirect URIs**.
+- You will find your **App ID** and **App Secret** in the **Settings** > **Basic** section. Copy these values and place them in your `.env` file.
+
+Once you have these credentials, your `.env` file should look like:
+
 ```
 DJANGO_SECRET_KEY=your-django-secret-key-here
 GOOGLE_CLIENT_ID=your-google-client-id-here
@@ -52,6 +75,8 @@ GOOGLE_CLIENT_SECRET=your-google-client-secret-here
 FACEBOOK_APP_ID=your-facebook-app-id-here
 FACEBOOK_APP_SECRET=your-facebook-app-secret-here
 ```
+
+
 ### 4. Database Setup and Run Server
 ```
 python manage.py migrate
