@@ -1,10 +1,10 @@
-# social_auth/urls.py
 from django.contrib import admin
 from django.urls import path, include
 from django.views.generic import RedirectView
 from django.shortcuts import redirect
 
 def redirect_to_login(request):
+    """Redirects the home URL to the login page if the user is not logged in."""
     return redirect('login')
 
 urlpatterns = [

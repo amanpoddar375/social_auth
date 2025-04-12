@@ -8,15 +8,19 @@ from rest_framework.authentication import TokenAuthentication
 from allauth.socialaccount.models import SocialAccount
 from django.shortcuts import redirect
 
-# Remove the login_required decorator from the login view
+
 def login_view(request):
-    # If user is already authenticated, redirect to profile
+    """Renders the login page or redirects to the profile page if the user is authenticated."""
     if request.user.is_authenticated:
         return redirect('profile')
     return render(request, 'login.html')
 
 @login_required
 def profile_view(request):
+    """
+    Renders the profile page and displays the user's social provider if linked.
+    Defaults to 'standard' if no social account is found.
+    """
     try:
         social_account = SocialAccount.objects.filter(user=request.user).first()
         provider = social_account.provider if social_account else 'standard'
@@ -26,10 +30,15 @@ def profile_view(request):
     return render(request, 'home.html', {'provider': provider})
 
 class UserInfoAPIView(APIView):
+    """
+    Returns authenticated user's info, including social account data if available.
+    Requires token authentication and the user to be logged in.
+    """
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
 
     def get(self, request):
+        """Retrieves and returns the user's ID, username, email, full name, and social account data."""
         user = request.user
         try:
             social_account = SocialAccount.objects.filter(user=user).first()
