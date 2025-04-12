@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profile</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        .logout-button {
+            display: inline-block;
+            margin-top: 20px;
+            padding: 8px 15px;
+            background-color: #f44336;
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Welcome to Your Profile</h2>
+        <p>You are logged in using <strong>{{ provider|title }}</strong></p>
+        
+        <div>
+            <p><strong>Username:</strong> {{ user.username }}</p>
+            <p><strong>Email:</strong> {{ user.email }}</p>
+            <p><strong>Name:</strong> {{ user.first_name }} {{ user.last_name }}</p>
+        </div>
+        
+        <a href="{% url 'account_logout' %}" class="logout-button">Logout</a>
+    </div>
+    
+    <script>
+        // You can access the token in JavaScript if needed
+        // This would be relevant if using the token for API calls
+        function getToken() {
+            // This is a placeholder - in a real app you would get the token 
+            // from cookies or localStorage after the OAuth process
+            return localStorage.getItem('authToken');
+        }
+    </script>
+</body>
+</html>

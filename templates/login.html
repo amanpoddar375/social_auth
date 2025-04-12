@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Login</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .social-button {
+            display: block;
+            margin: 10px 0;
+            padding: 10px 15px;
+            border-radius: 4px;
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+        }
+        .google-button {
+            background-color: #DB4437;
+        }
+        .facebook-button {
+            background-color: #4267B2;
+        }
+        .container {
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h2>Login to Your Account</h2>
+        <p>Choose your preferred login method:</p>
+        
+        <a href="/accounts/google/login/" class="social-button google-button">
+            Continue with Google
+        </a>
+        
+        <a href="/accounts/facebook/login/" class="social-button facebook-button">
+            Continue with Facebook
+        </a>
+    </div>
+</body>
+</html>
