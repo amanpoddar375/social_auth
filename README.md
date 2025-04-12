@@ -75,3 +75,13 @@ After creating the superuser, configure the default site for social login:
 Now that everything is set up, navigate to the login page in your browser:
 
 http://localhost:8000/accounts/login/
+
+![alt text](image.png)
+
+On clicking Continue with Google
+![alt text](image-1.png)
+![alt text](image-2.png)
+
+On Clickeing Continue with Facebook
+![alt text](image-3.png)
+![alt text](image-4.png)
